@@ -4,15 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diabetes Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2b3348;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #2e2c4b;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #f0eff3;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #f5f4f4;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Diabetes Prediction</h1>
-    <form action="/predict" method="post">
-        {% for feature in X.columns %}
-        <label for="{{ feature }}">{{ feature }}:</label>
-        <input type="text" id="{{ feature }}" name="{{ feature }}"><br><br>
-        {% endfor %}
-        <input type="submit" value="Predict">
-    </form>
+    <div class="container">
+        <h1 >T2DM Predictor:</h1>
+        <form action="/" method="post">
+            {% for feature in X %}
+            <label for="{{ feature }}">{{ feature }}</label>
+            <input type="text" id="{{ feature }}" name="{{ feature }}" required><br>
+            {% endfor %}
+            <button type="submit">Predict</button>
+        </form>
+    </div>
 </body>
 </html>
